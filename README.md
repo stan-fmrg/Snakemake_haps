@@ -461,7 +461,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 
 
 
-[Snakefile]: https://snakemake.readthedocs.io/en/stable/
+
 [config.yaml]: https://github.com/chollenbeck/snakemake_haps/blob/master/config.yaml
 [data/fastq_raw]: https://github.com/chollenbeck/snakemake_haps/tree/master/data/fastq_raw
 [data/genome]: https://github.com/chollenbeck/snakemake_haps/tree/master/data/genome
@@ -473,7 +473,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [haplotype.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/haplotype.py
 [clean.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/clean.py
 [bin/snakefiles]: https://github.com/chollenbeck/snakemake_haps/tree/master/bin/snakefiles 
-[Snakemake]: https://bitbucket.org/snakemake/snakemake/wiki/Home
+[Snakemake]: https://snakemake.readthedocs.io/en/stable/
 [tutorial for beginners]: http://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html
 [fastqc]: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
 [BAM]: http://samtools.github.io/hts-specs/SAMv1.pdf
