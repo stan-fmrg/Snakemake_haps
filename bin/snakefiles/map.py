@@ -56,9 +56,9 @@ elif config["illumina_se"] is None and config["Flash"] is True:
             bwa_params = config["BWA-Mapping"]["BWA_mem_params"],
             samtools_params = config["Samtools_mapping_params"]["samtools_view_params"]
         log:
-            MAP_DOC + "bwa_{sample}_pe.log"
+            MAP_DOC + "bwa_{sample}.log"
         benchmark:
-            MAP_DOC + "bwa_{sample}_pe.json"
+            MAP_DOC + "bwa_{sample}.json"
         shell:
             "(bwa mem -R '{params.rg}' {params.bwa_params} {input.reference} {input.Flashed_read} | "
             "samtools view {params.samtools_params} - "
@@ -79,9 +79,9 @@ elif config["illumina_pe"] is None:
             bwa_params = config["BWA-Mapping"]["BWA_mem_params"],
             samtools_params = config["Samtools_mapping_params"]["samtools_view_params"]
         log:
-            MAP_DOC + "bwa_{sample}_se.log"
+            MAP_DOC + "bwa_{sample}.log"
         benchmark:
-            MAP_DOC + "bwa_{sample}_se.json"
+            MAP_DOC + "bwa_{sample}.json"
         shell:
             "(bwa mem -R '{params.rg}' {params.bwa_params} {input.reference} {input.single} | "
             "samtools view {params.samtools_params} - "
@@ -90,269 +90,151 @@ elif config["illumina_pe"] is None:
 
 #########################################################################################################
 
-if config["illumina_se"] is None:
-    rule map_sort_sample_pe:
-        input:
-            MAP_DIR + "{sample}.unsorted.bam"
-        output:
-            temp(MAP_DIR + "{sample}.Rmdup.bam")
-        log:
-            MAP_DOC + "sort_{sample}_pe.log"
-        benchmark:
-            MAP_DOC + "sort_{sample}_pe.json"
-        threads:
-            4
-        shell:
-            "samtools sort -n -@ {threads} "
-                "-T $(mktemp --dry-run) "
-                "-O bam {input} "
-            "> {output} "
-            "2> {log}"
 
-elif config["illumina_pe"] is None:
-    rule map_sort_sample_se:
-        input:
-            MAP_DIR + "{sample}.unsorted.bam"
-        output:
-            temp(MAP_DIR + "{sample}.Rmdup.bam")
-        log:
-            MAP_DOC + "sort_{sample}_se.log"
-        benchmark:
-            MAP_DOC + "sort_{sample}_se.json"
-        threads:
-            4
-        shell:
-            "samtools sort -n -@ {threads} "
-                "-T $(mktemp --dry-run) "
-                "-O bam {input} "
-            "> {output} "
-            "2> {log}"
+rule map_sort_sample:
+    input:
+        MAP_DIR + "{sample}.unsorted.bam"
+    output:
+        temp(MAP_DIR + "{sample}.Rmdup.bam")
+    log:
+        MAP_DOC + "sort_{sample}.log"
+    benchmark:
+        MAP_DOC + "sort_{sample}.json"
+    threads:
+        4
+    shell:
+        "samtools sort -n -@ {threads} "
+            "-T $(mktemp --dry-run) "
+            "-O bam {input} "
+        "> {output} "
+        "2> {log}"
 
 #########################################################################################################
 
-if config["illumina_se"] is None:
-    rule map_fixmate_sample_pe:
-        input:
-            MAP_DIR + "{sample}.Rmdup.bam"
-        output:
-            temp(MAP_DIR + "{sample}.fixmate.bam")
-        params:
-            fixmate_params = config["SamTools_Fixmate"]["fixmate_params"]
-        log:
-            MAP_DOC + "fixmate_{sample}_pe.log"
-        benchmark:
-            MAP_DOC + "fixmate_{sample}_pe.json"
-        shell:
-            "samtools fixmate {params.fixmate_params} {input} {output} "
 
+rule map_fixmate_sample:
+    input:
+        MAP_DIR + "{sample}.Rmdup.bam"
+    output:
+        temp(MAP_DIR + "{sample}.fixmate.bam")
+    params:
+        fixmate_params = config["SamTools_Fixmate"]["fixmate_params"]
+    log:
+        MAP_DOC + "fixmate_{sample}.log"
+    benchmark:
+        MAP_DOC + "fixmate_{sample}.json"
+    shell:
+        "samtools fixmate {params.fixmate_params} {input} {output} "
 
-elif config["illumina_pe"] is None:
-    rule map_fixmate_sample_se:
-        input:
-            MAP_DIR + "{sample}.Rmdup.bam"
-        output:
-            temp(MAP_DIR + "{sample}.fixmate.bam")
-        params:
-            fixmate_params = config["SamTools_Fixmate"]["fixmate_params"]
-        log:
-            MAP_DOC + "fixmate_{sample}_se.log"
-        benchmark:
-            MAP_DOC + "fixmate_{sample}_se.json"
-        shell:
-            "samtools fixmate {params.fixmate_params} {input} {output} "
-
-#########################################################################################################
-
-if config["illumina_se"] is None:
-    rule map_sort_2_sample_pe:
-        input:
-            MAP_DIR + "{sample}.fixmate.bam"
-        output:
-            temp(MAP_DIR + "{sample}.fixmate_sorted.bam")
-        log:
-            MAP_DOC + "sort_2_{sample}_pe.log"
-        benchmark:
-            MAP_DOC + "sort_2_{sample}_pe.json"
-        threads:
-            4
-        shell:
-            "samtools sort -@ {threads} "
-                "-T $(mktemp --dry-run) "
-                "-O bam {input} "
-            "> {output} "
-            "2> {log}"
-
-elif config["illumina_pe"] is None:
-    rule map_sort_2_sample_se:
-        input:
-            MAP_DIR + "{sample}.fixmate.bam"
-        output:
-            temp(MAP_DIR + "{sample}.fixmate_sorted.bam")
-        log:
-            MAP_DOC + "sort_2_{sample}_se.log"
-        benchmark:
-            MAP_DOC + "sort_2_{sample}_se.json"
-        threads:
-            4
-        shell:
-            "samtools sort -@ {threads} "
-                "-T $(mktemp --dry-run) "
-                "-O bam {input} "
-            "> {output} "
-            "2> {log}"
 
 
 
 #########################################################################################################
 
-if config["illumina_se"] is None:
-    rule map_markdup_sample_pe:
-        input:
-            MAP_DIR + "{sample}.fixmate_sorted.bam"
-        output:
-            BAM = MAP_DIR + "{sample}.sorted.bam",
-            BAI = MAP_DIR + "{sample}.sorted.bam.bai"
-        params:
-            markdup_params = config["Marking_Duplicates"]["markdup_params"]
-        log:
-            MAP_DOC + "rmdup_{sample}_pe.log"
-        benchmark:
-            MAP_DOC + "rmdup_{sample}_pe.json"
-        shell:
-            """
-            samtools markdup {params.markdup_params} {input} {output.BAM}
-            samtools index {output.BAM} {output.BAI}
-            """
 
-elif config["illumina_pe"] is None:
-    rule map_markdup_sample_se:
-        input:
-            MAP_DIR + "{sample}.fixmate_sorted.bam"
-        output:
-            BAM = MAP_DIR + "{sample}.sorted.bam",
-            BAI = MAP_DIR + "{sample}.sorted.bam.bai"
-        params:
-            markdup_params = config["Marking_Duplicates"]["markdup_params"]
-        log:
-            MAP_DOC + "rmdup_{sample}_se.log"
-        benchmark:
-            MAP_DOC + "rmdup_{sample}_se.json"
-        shell:
-            """
-            samtools markdup {params.markdup_params} {input} {output.BAM}
-            samtools index {output.BAM} {output.BAI}
-            """
+rule map_sort_2_sample:
+    input:
+        MAP_DIR + "{sample}.fixmate.bam"
+    output:
+        temp(MAP_DIR + "{sample}.fixmate_sorted.bam")
+    log:
+        MAP_DOC + "sort_2_{sample}.log"
+    benchmark:
+        MAP_DOC + "sort_2_{sample}.json"
+    threads:
+        4
+    shell:
+        "samtools sort -@ {threads} "
+            "-T $(mktemp --dry-run) "
+            "-O bam {input} "
+        "> {output} "
+        "2> {log}"
+
+
+#########################################################################################################
+
+
+rule map_markdup_sample:
+    input:
+        MAP_DIR + "{sample}.fixmate_sorted.bam"
+    output:
+        BAM = MAP_DIR + "{sample}.sorted.bam",
+        BAI = MAP_DIR + "{sample}.sorted.bam.bai"
+    params:
+        markdup_params = config["Marking_Duplicates"]["markdup_params"]
+    log:
+        MAP_DOC + "rmdup_{sample}.log"
+    benchmark:
+        MAP_DOC + "rmdup_{sample}.json"
+    shell:
+        """
+        samtools markdup {params.markdup_params} {input} {output.BAM}
+        samtools index {output.BAM} {output.BAI}
+        """
+
+#########################################################################################################
+
+
+rule map_stats_sample:
+    input:
+        MAP_DIR + "{sample}.sorted.bam"
+    output:
+        FINAL_DOCS_GENERALSTATS + "{sample}.generalStats"
+    log:
+        MAP_DOC + "stats_{sample}.log"
+    benchmark:
+        MAP_DOC + "stats_{sample}.json"
+    shell:
+        "samtools stats {input} | "
+        "grep ^SN | cut -f 2- > {output}"
+
+
+#########################################################################################################
+
+
+rule map_idxstats_sample:
+    input:
+        MAP_DIR + "{sample}.sorted.bam"
+    output:
+        idxstats = FINAL_DOCS_IDXSTATS + "{sample}.idxstats",
+        flagstat = FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"
+    benchmark:
+        MAP_DOC + "index_{sample}_idxstats.json"
+    shell:
+        """
+        samtools idxstats {input} > {output.idxstats}
+        samtools flagstat {input} > {output.flagstat}
+        """
+
+
+#########################################################################################################
+
+
+
+rule map_QualiMap_bam_sample:
+    input:
+        MAP_DIR + "{sample}.sorted.bam"
+    output:
+        sample_header = temp(MAP_DIR + "{sample}.header.sam"),
+        new_sample_header = temp(MAP_DIR + "{sample}.header.new.sam"),
+        new_bam = temp(MAP_DIR + "{sample}.new.bam"),
+        new_bam_index = temp(MAP_DIR + "{sample}.new.bam.bai"),
+        qualimap_outfile = FINAL_DOCS_QUALIMAP + "{sample}.qualimap"
+    benchmark:
+        MAP_DOC + "qualimap_{sample}.json"
+    shell:
+        """
+        samtools view -H {input} > {output.sample_header}
+        head -n -3 {output.sample_header} > {output.new_sample_header}
+        samtools reheader {output.new_sample_header} {input} > {output.new_bam}
+        samtools index {output.new_bam} {output.new_bam_index}
+        qualimap bamqc -bam {output.new_bam} -outdir {output.qualimap_outfile} -outfile {output.qualimap_outfile} -outformat html
+        """
 
 #########################################################################################################
 
 if config["illumina_se"] is None:
-    rule map_stats_sample_pe:
-        input:
-            MAP_DIR + "{sample}.sorted.bam"
-        output:
-            FINAL_DOCS_GENERALSTATS + "{sample}.generalStats"
-        log:
-            MAP_DOC + "stats_{sample}_pe.log"
-        benchmark:
-            MAP_DOC + "stats_{sample}_pe.json"
-        shell:
-            "samtools stats {input} | "
-            "grep ^SN | cut -f 2- > {output}"
-
-elif config["illumina_pe"] is None:
-    rule map_stats_sample_se:
-        input:
-            MAP_DIR + "{sample}.sorted.bam"
-        output:
-            FINAL_DOCS_GENERALSTATS + "{sample}.generalStats"
-        log:
-            MAP_DOC + "stats_{sample}_se.log"
-        benchmark:
-            MAP_DOC + "stats_{sample}_se.json"
-        shell:
-            "samtools stats {input} | "
-            "grep ^SN | cut -f 2- > {output}"
-
-#########################################################################################################
-
-if config["illumina_se"] is None:
-    rule map_idxstats_sample_pe:
-        input:
-            MAP_DIR + "{sample}.sorted.bam"
-        output:
-            idxstats = FINAL_DOCS_IDXSTATS + "{sample}.idxstats",
-            flagstat = FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"
-        benchmark:
-            MAP_DOC + "index_{sample}_idxstats.json"
-        shell:
-            """
-            samtools idxstats {input} > {output.idxstats}
-            samtools flagstat {input} > {output.flagstat}
-            """
-
-elif config["illumina_pe"] is None:
-    rule map_idxstats_sample_se:
-        input:
-            MAP_DIR + "{sample}.sorted.bam"
-        output:
-            idxstats = FINAL_DOCS_IDXSTATS + "{sample}.idxstats",
-            flagstat = FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"
-        benchmark:
-            MAP_DOC + "index_{sample}_idxstats.json"
-        shell:
-            """
-            samtools idxstats {input} > {output.idxstats}
-            samtools flagstat {input} > {output.flagstat}
-            """
-
-#########################################################################################################
-
-if config["illumina_se"] is None:
-    rule map_QualiMap_sample_pe:
-        input:
-            MAP_DIR + "{sample}.sorted.bam"
-        output:
-            sample_header = temp(MAP_DIR + "{sample}.header.sam"),
-            new_sample_header = temp(MAP_DIR + "{sample}.header.new.sam"),
-            new_bam = temp(MAP_DIR + "{sample}.new.bam"),
-            new_bam_index = temp(MAP_DIR + "{sample}.new.bam.bai"),
-            qualimap_outfile = FINAL_DOCS_QUALIMAP + "{sample}.qualimap"
-        benchmark:
-            MAP_DOC + "qualimap_{sample}.json"
-        shell:
-            """
-            samtools view -H {input} > {output.sample_header}
-            head -n -3 {output.sample_header} > {output.new_sample_header}
-            samtools reheader {output.new_sample_header} {input} > {output.new_bam}
-            samtools index {output.new_bam} {output.new_bam_index}
-            qualimap bamqc -bam {output.new_bam} -outdir {output.qualimap_outfile} -outfile {output.qualimap_outfile} -outformat html
-            """
-
-elif config["illumina_pe"] is None:
-   rule map_QualiMap_sample_se:
-        input:
-            MAP_DIR + "{sample}.sorted.bam"
-        output:
-            sample_header = temp(MAP_DIR + "{sample}.header.sam"),
-            new_sample_header = temp(MAP_DIR + "{sample}.header.new.sam"),
-            new_bam = temp(MAP_DIR + "{sample}.new.bam"),
-            new_bam_index = temp(MAP_DIR + "{sample}.new.bam.bai"),
-            qualimap_outfile = FINAL_DOCS_QUALIMAP + "{sample}.qualimap"
-        benchmark:
-            MAP_DOC + "qualimap_{sample}.json"
-        shell:
-            """
-            samtools view -H {input} > {output.sample_header}
-            head -n -3 {output.sample_header} > {output.new_sample_header}
-            samtools reheader {output.new_sample_header} {input} > {output.new_bam}
-            samtools index {output.new_bam} {output.new_bam_index}
-            qualimap bamqc -bam {output.new_bam} -outdir {output.qualimap_outfile} -outfile {output.qualimap_outfile} -outformat html
-            """
-
-#########################################################################################################
-
-if config["illumina_se"] is None:
-    rule map_multiQC_sample_pe:
+    rule map_MultiQC_Samtools_sample_pe:
         input:
             idxstats = expand(FINAL_DOCS_IDXSTATS + "{sample}.idxstats", sample = SAMPLES_PE),
             flagstat = expand(FINAL_DOCS_FLAGSTAT + "{sample}.flagstat", sample = SAMPLES_PE)
@@ -366,7 +248,7 @@ if config["illumina_se"] is None:
             """
 
 elif config["illumina_pe"] is None:
-    rule map_multiQC_sample_se:
+    rule map_MultiQC_Samtools_se:
         input:
             idxstats = expand(FINAL_DOCS_IDXSTATS + "{sample}.idxstats", sample = SAMPLES_SE),
             flagstat = expand(FINAL_DOCS_FLAGSTAT + "{sample}.flagstat", sample = SAMPLES_SE)
@@ -382,7 +264,7 @@ elif config["illumina_pe"] is None:
 #########################################################################################################
 
 if config["illumina_se"] is None and config["QC_Tests"] is True:
-    rule map_QUALIMAP_sample_pe:
+    rule map_MultiQC_Qualimap_sample_pe:
         input:
             QUALIMAP = expand(FINAL_DOCS_QUALIMAP + "{sample}.qualimap", sample = SAMPLES_PE)
         output:
@@ -393,7 +275,7 @@ if config["illumina_se"] is None and config["QC_Tests"] is True:
             """
 
 elif config["illumina_pe"] is None and config["QC_Tests"] is True:
-    rule map_QUALIMAP_sample_se:
+    rule map_MultiQC_Qualimap_sample_se:
         input:
             QUALIMAP = expand(FINAL_DOCS_QUALIMAP + "{sample}.qualimap", sample = SAMPLES_SE)
         output:
