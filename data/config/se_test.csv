@@ -1,0 +1,3 @@
+sample,forward,adapter,phred
+S4,S4_S4_L001_R1_001.fastq.gz,TrueSeq3-SE-2.fa,phred33
+S3,S3_S3_L001_R1_001.fastq.gz,TrueSeq3-SE-2.fa,phred33
