@@ -78,6 +78,8 @@ $bash Miniconda3-latest-Linux-x86_64.sh
 
 ###### - Answer yes to the question whether conda shall be put into your PATH.
 
+###### - You must restart your account for the changes to take place or run ~/.bashrc from your terminal.
+
 ### 1.2 Installing Snakemake workflow manager:
 
 ##### Via Bioconda channel:
@@ -131,7 +133,7 @@ cd snakemake_haps
 
 ```bash
 #Installing available environment
-conda env create --name *environment_name* --file /bin/install/environment.yml
+conda env create --name *environment_name* --file bin/install/environment.yml
 
 #Activate environment
 source activate *environment_name* 
