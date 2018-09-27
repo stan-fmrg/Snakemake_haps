@@ -393,7 +393,7 @@ and
 ###### - The total number of reads aligned to every locus
 
  
-Snakefiles **(These files should not be changed)**
+### 4 Snakefiles **(These files should not be changed)**
 
 In snakemake, snakefiles are the files that contain the rules that denote how to create output files from input files. For this workflow, snakefiles are categorised based on their function and on which step of the workflow they are activated.
 
@@ -418,10 +418,12 @@ You can read more about the method in the available manual of [rad_haplotyper] a
 
 Willis, S. C., Hollenbeck, C. M., Puritz, J. B., Gold, J. R. and Portnoy, D. S. (2017), Haplotyping RAD loci: an efficient method to filter paralogs and account for physical linkage. Mol Ecol Resour, 17: 955–965. doi:10.1111/1755-0998.12647 [link]
 
+-[BAM_to_SAM.py] is essential part of the [haplotype.py]  
+
 -[clean.py] removes all uneccessary files and folders created thoughout the analysis
 
 
-## Data
+### 5 Data
 
 This repository includes 2 directories with fastq files of 3 samples each, one of which is single-end fastq files and the other is paired-end fastq files.These files can be used as exampels with the tutorial of this manual. Additionally, two reference sequences for the two types of raw reads are available, one for the single-end and one for the paired-end sample tutorial.
 
@@ -479,7 +481,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 
 
 
-[Snakefile]: https://github.com/skyriakidis/Snakemake_haps/tree/master/bin/snakefiles
+[Snakefile]: ~/tree/master/bin/snakefiles
 [data/fastq_raw]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/fastq_raw
 [data/genome]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/genome
 [raw.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/raw.py
