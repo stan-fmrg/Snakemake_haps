@@ -212,7 +212,7 @@ $ snakemake
 
 #### 2.2 Steps for running "Snakemake_haps" only for variant calling. 
 
-##### 2.2.1 The "Snakemake_haps" program is coming with the option to be used only for variant calling when the designing of haplotypes are not needed. To configure "Snakemake_haps" to proceed with the analysis without the [rad_haplotyper] step, [build_hap_config.py] script (described in 2.1.2) must be used with a changed option _-q_ as False (Default value = True). 
+##### 2.2.1 The "Snakemake_haps" program is coming with the option to be used only for variant calling when the designing of haplotypes are not needed. To configure "Snakemake_haps" to proceed with the analysis without the [rad_haplotyper] step, [build_hap_config.py] script (described in 2.1.2) must be used with a changed option **"-q"** as False (Default value = True). 
 
 ```
 #Run the build_hap_config.py script
@@ -227,7 +227,7 @@ Then "Snakemake_haps" workflow can be activated as described in 2.1.3
 $ snakemake
 ``` 
 
-##### 2.2.2 For paired-end reads, the default usage include the "FLASH" (Fast Length Adjustment of SHort reads) step of merging paired-end reads. FLASH is designed to merge pairs of reads when the original DNA fragments are shorter than twice the length of reads. The resulting longer reads can significantly improve genome assemblies. They can also improve transcriptome assembly when FLASH is used to merge RNA-seq data.	For variant calling with paired-end reads that are not necessary to be merged, FLASH option can be deactivated by running the [build_hap_config.py] script with the option _-f_ as False (Default value = True).
+##### 2.2.2 For paired-end reads, the default usage include the "FLASH" (Fast Length Adjustment of SHort reads) step of merging paired-end reads. FLASH is designed to merge pairs of reads when the original DNA fragments are shorter than twice the length of reads. The resulting longer reads can significantly improve genome assemblies. They can also improve transcriptome assembly when FLASH is used to merge RNA-seq data.	For variant calling with paired-end reads that are not necessary to be merged, FLASH option can be deactivated by running the [build_hap_config.py] script with the option **"-f"** as False (Default value = True).
 
 ```
 #Run the build_hap_config.py script
@@ -244,7 +244,7 @@ $ snakemake
 
 #### 2.3 Steps for running "Snakemake_haps" without QC step **(Not suggested)**. 
 
-In the same way as before, "Snakemake_haps" can be used for variant analysis and haplotype calling, however it is possitble to skip the QC step of the sequencing reads, which can take a huge amount of time. To do that, [build_hap_config.py] script has to be run by using the option _-p_ as False (Default value = False).
+In the same way as before, "Snakemake_haps" can be used for variant analysis and haplotype calling, however it is possitble to skip the QC step of the sequencing reads, which can take a huge amount of time. To do that, [build_hap_config.py] script has to be run by using the option **"-p"** as False (Default value = False).
 
 ```
 #Run the build_hap_config.py script
@@ -261,7 +261,7 @@ $ snakemake
 
 #### 2.4 Steps for running "Snakemake_haps" without both QC and haplotype calling:
 
-For using "Snakemake_haps" only for variant calling with no QC and haplotype calling, the two previiously explained options _-p_ and _-q_ can be combined when [build_hap_config.py] is run.
+For using "Snakemake_haps" only for variant calling with no QC and haplotype calling, the two previiously explained options **"-p"** and **"-q"** can be combined when [build_hap_config.py] is run.
 
 ```
 #Run the build_hap_config.py script
