@@ -381,6 +381,8 @@ The files that are produced during the workflow contain figures and statistis ab
 **This (tidy) file can be loaded into R and can be used to further filter loci from the data set based on user-defined cut-off values.**
 ###### - ind_stats.out: This file lists number of loci that are possible paralogs, have low coverage/errors, missing genotypes, number of failed loci, the total number of loci, and the proportion of successful loci on a per individual basis. This file can be used to identify and remove problematic individuals from the final data set.
 
+###### -This step of the analysis also produces the appropriate input files for generating a visual summary of microhaplotypes found from this workflow using [microhaplot] R package. 
+
 #### 3.5 Documents: This directory contains all the files that contain statistics about the reads and the QC step, as well as the mapping of the reads. Some of the information that can be found in these files is:
 
 ###### - The total number of reads per sample,
@@ -418,12 +420,12 @@ You can read more about the method in the available manual of [rad_haplotyper] a
 
 Willis, S. C., Hollenbeck, C. M., Puritz, J. B., Gold, J. R. and Portnoy, D. S. (2017), Haplotyping RAD loci: an efficient method to filter paralogs and account for physical linkage. Mol Ecol Resour, 17: 955–965. doi:10.1111/1755-0998.12647 [link]
 
--[BAM_to_SAM.py] is essential part of the [haplotype.py]  
+-[BAM_to_SAM.py] is an essential part of the [haplotype.py] where prepares the files for an extra analysis with the R package [microhaplot]. Microhaplot generates visual summaries of microhaplotypes found in short read alignments by using the alignment SAM files and a variant call VCF file. It was designed for extracting and visualized haplotypes from high-quality amplicon sequencing data. For more information about this R package you can read in https://github.com/ngthomas/microhaplot. All the output files required for microhaplot are stored in the results directory results/Final_results/Microhaplot.
 
 -[clean.py] removes all uneccessary files and folders created thoughout the analysis
 
 
-### 5 Data
+### 5 Sample data
 
 This repository includes 2 directories with fastq files of 3 samples each, one of which is single-end fastq files and the other is paired-end fastq files.These files can be used as exampels with the tutorial of this manual. Additionally, two reference sequences for the two types of raw reads are available, one for the single-end and one for the paired-end sample tutorial.
 
@@ -431,13 +433,13 @@ This repository includes 2 directories with fastq files of 3 samples each, one o
 [data/fastq_raw/Single_end_sample_fastq/]
 - Sample_1
 	- `S1_001` 
-		- `S1_S1_L001_R1_001.fastq.gz`
+		- `S1_L001.fastq.gz`
 - Sample_2
 	- `S2_001` 
-		- `S2_S2_L001_R1_001.fastq.gz`
+		- `S2_L001.fastq.gz`
 - Sample_3
 	- `S3_001` 
-		- `S3_S3_L001_R1_001.fastq.gz`
+		- `S3_L001.fastq.gz`
 			
 		
 **Paired-end reads**
@@ -481,7 +483,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 
 
 
-[Snakefile]: ~/tree/master/bin/snakefiles
+[Snakefile]: https://github.com/skyriakidis/Snakemake_haps/tree/master/bin/snakefiles
 [data/fastq_raw]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/fastq_raw
 [data/genome]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/genome
 [raw.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/raw.py
@@ -503,7 +505,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [build_hap_config.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/scripts/build_hap_config.py
 [Trimmomatic]: http://www.usadellab.org/cms/?page=trimmomatic
 [SAMformat]: http://www.samformat.info/sam-format-flag
-
+[microhaplot]: https://github.com/ngthomas/microhaplot
 
 ## This pipeline is a contribution from the University of St Andrews, a partner in the European Marine Biological Research Infrastructure Cluster (EMBRIC) project funded by the European Union's Horizon 2020 research and innovation program under grant agreement No 654008.
 
