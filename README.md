@@ -37,10 +37,10 @@ If you are new to [Snakemake], you might want to start by working the available 
 
 ```bash
 # Curl is needed so if not installed you can install it by typing:
-sudo apt install curl	
+$ sudo apt install curl	
 
 # Installing Anaconda
-curl -o /tmp/Anaconda.sh https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh && bash /tmp/Anaconda.sh
+$ curl -o /tmp/Anaconda.sh https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh && bash /tmp/Anaconda.sh
 ```
 
 ##### or
@@ -49,9 +49,9 @@ curl -o /tmp/Anaconda.sh https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux
 
 ```bash
 #Change directory to where the installer is
-cd ~/Path/to/Anaconda.sh
+$ cd ~/Path/to/Anaconda.sh
 #Run the installer by typing 
-bash Anaconda.sh
+$ bash Anaconda.sh
 ```
 
 #### For installing Miniconda Pyhon 3 distribution:
@@ -59,10 +59,10 @@ bash Anaconda.sh
 
 ```bash
 # If Curl is not installed you can install it by typing:
-$sudo apt install curl	
+$ sudo apt install curl	
 
 # Installing Miniconda3t
-$curl -o /tmp/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash /tmp/miniconda.sh
+$ curl -o /tmp/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && bash /tmp/miniconda.sh
 ```
 
 ##### or
@@ -71,9 +71,9 @@ $curl -o /tmp/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-latest
 
 ```bash
 #Change directory to where the installer is
-$cd ~/Path/to/Miniconda3.sh
+$ cd ~/Path/to/Miniconda3.sh
 #Run the installer by typing 
-$bash Miniconda3-latest-Linux-x86_64.sh
+$ bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
 ###### - Answer yes to the question whether conda shall be put into your PATH.
@@ -86,19 +86,19 @@ $bash Miniconda3-latest-Linux-x86_64.sh
 
 ```bash
 #Installing Snakemake from the Bioconda channel:
-$conda install -c bioconda snakemake
+$ conda install -c bioconda snakemake
 ```
 ##### With a working Python >=3.5 setup, installation of Snakemake can be performed via PyPi:
 
 ```bash
 #Installing Snakemake via PyPi:
-$pip3 install snakemake
+$ pip3 install snakemake
 ```
 
 ##### or
 
 ```bash
-easy_install3 snakemake
+$ easy_install3 snakemake
 ```
 
 ### 1.3 Downloading and installing "Snakemake_haps" files:
@@ -111,10 +111,10 @@ This repository contains scripts that are part of a complete workflow for DNA-se
 
 ```bash
 #Download files
-git clone https://github.com/chollenbeck/snakemake_haps.git
+$ git clone https://github.com/chollenbeck/snakemake_haps.git
 
 #Change directory to snakemake_haps
-cd snakemake_haps
+$ cd snakemake_haps
 ```
 
 ##### or
@@ -124,7 +124,7 @@ cd snakemake_haps
 
 ```bash
 #Change directory to snakemake_haps
-cd snakemake_haps
+$ cd snakemake_haps
 ```
 
 ### 1.4 Create an environment
@@ -133,16 +133,16 @@ cd snakemake_haps
 
 ```bash
 #Installing available environment
-conda env create --name *environment_name* --file bin/install/environment.yml
+$ conda env create --name *environment_name* --file bin/install/environment.yml
 
 #Activate environment
-source activate *environment_name* 
+$ source activate *environment_name* 
 ```
 
 #### and deactivate it by using 
 ```bash
 #Deactivating environment
-source deactivate
+$ source deactivate
 ```
 
 ### 1.5 Quick run of "Snakemake_haps"
@@ -153,21 +153,21 @@ For running "Snakemake_haps with default parameters, the following set of comman
 
 ```bash
 #Change directory
-cd /home/Snakemake_haps_directory/
+$ cd /home/Snakemake_haps_directory/
 ```
 
 2) Run build_hap_config.py script to create the config.yaml file with all analysis parameters and paths of the raw fastq files. 
 
 ```
 #Run the build_hap_config.py script
-python bin/scripts/build_hap_config.py -g data/genome/"name_of_ref_seq.fasta" -d /home/Path/of/Fastq/files
+$ python bin/scripts/build_hap_config.py -g data/genome/"name_of_ref_seq.fasta" -d /home/Path/of/Fastq/files
 ```
 
 3) Run "Snakemake_haps"
 
 ```
 #Start workflow by running snakemake
-snakemake
+$ snakemake
 ``` 
 
 _A more detailed explanation of the above steps are given in following "Tutorial"._
@@ -182,7 +182,7 @@ This next part, will use the available sample data files in [data/fastq_raw] to 
 
 ```bash
 #Change directory
-cd /home/Snakemake_haps_directory/
+$ cd /home/Snakemake_haps_directory/
 ```
 
 ##### 2.1.1 To use the default workflow parameters:
@@ -194,7 +194,7 @@ cd /home/Snakemake_haps_directory/
 
 ```
 #Run the build_hap_config.py script
-python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta"
+$ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta"
 ```
 
 This python script will create a .yaml file consisting all the available parameters needed for the workflow to succesfully run, as well as all the paths of the FASTQ sample files with their designation as paired-end or single-end reads.
@@ -207,7 +207,7 @@ sequencing read path, as well as the default parameters of mapping, variant call
 
 ```
 #Start workflow by running snakemake
-snakemake
+$ snakemake
 ``` 
 
 #### 2.2 Steps for running "Snakemake_haps" only for variant calling. 
@@ -216,7 +216,7 @@ snakemake
 
 ```
 #Run the build_hap_config.py script
-python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -q False"
+$ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -q False"
 ```
 That creates a config.yaml file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
 
@@ -224,14 +224,14 @@ Then "Snakemake_haps" workflow can be activated as described in 2.1.3
 
 ```
 #Start workflow by running snakemake
-snakemake
+$ snakemake
 ``` 
 
 ##### 2.2.2 For paired-end reads, the default usage include the "FLASH" (Fast Length Adjustment of SHort reads) step of merging paired-end reads. FLASH is designed to merge pairs of reads when the original DNA fragments are shorter than twice the length of reads. The resulting longer reads can significantly improve genome assemblies. They can also improve transcriptome assembly when FLASH is used to merge RNA-seq data.	For variant calling with paired-end reads that are not necessary to be merged, FLASH option can be deactivated by running the [build_hap_config.py] script with the option _-f_ as False (Default value = True).
 
 ```
 #Run the build_hap_config.py script
-python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -f False"
+$ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -f False"
 ```
 That creates a [config.yaml] file with FLASH step de-activated with all other parameters remaining the same.
 
@@ -239,7 +239,7 @@ Then "Snakemake_haps" workflow can be activated as described in 2.1.3
 
 ```
 #Start workflow by running snakemake
-snakemake
+$ snakemake
 ``` 
 
 #### 2.3 Steps for running "Snakemake_haps" without QC step **(Not suggested)**. 
@@ -248,7 +248,7 @@ In the same way as before, "Snakemake_haps" can be used for variant analysis and
 
 ```
 #Run the build_hap_config.py script
-python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -p False"
+$ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -p False"
 ```
 That creates a [config.yaml] file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
 
@@ -256,7 +256,7 @@ Then "Snakemake_haps" workflow can be activated as desctibed in 2.1.3
 
 ```
 #Start workflow by running snakemake
-snakemake
+$ snakemake
 ``` 
 
 #### 2.4 Steps for running "Snakemake_haps" without both QC and haplotype calling:
@@ -265,14 +265,14 @@ For using "Snakemake_haps" only for variant calling with no QC and haplotype cal
 
 ```
 #Run the build_hap_config.py script
-python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -p False -q False"
+$ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -p False -q False"
 ```
 
 Then "Snakemake_haps" workflow can be activated as desctibed in 2.1.3
 
 ```
 #Start workflow by running snakemake
-snakemake
+$ snakemake
 ``` 
 
 #### 2.4 Other parameters that can be changed in [build_hap_config.py]
