@@ -212,7 +212,7 @@ snakemake
 
 #### 2.2 Steps for running "Snakemake_haps" only for variant calling. 
 
-##### 2.2.1 The "Snakemake_haps" program is coming with the option to be used only for variant calling when the designing of haplotypes are not needed. To configure "Snakemake_haps" to proceed with the analysis without the [rad_haplotyper] step, [build_hap_config.py] script (described in 2.1.2) must be used with a changed option **-q** as False (Default value = True). 
+##### 2.2.1 The "Snakemake_haps" program is coming with the option to be used only for variant calling when the designing of haplotypes are not needed. To configure "Snakemake_haps" to proceed with the analysis without the [rad_haplotyper] step, [build_hap_config.py] script (described in 2.1.2) must be used with a changed option ##-q## as False (Default value = True). 
 
 ```
 #Run the build_hap_config.py script
