@@ -218,7 +218,7 @@ snakemake
 #Run the build_hap_config.py script
 python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -q False"
 ```
-That creates a [config.yaml] file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
+That creates a config.yaml file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
 
 Then "Snakemake_haps" workflow can be activated as described in 2.1.3
 
@@ -478,18 +478,17 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 
 
 
-[Snakefile]: https://github.com/chollenbeck/snakemake_haps/tree/master/bin/snakefiles
-[config.yaml]: https://github.com/chollenbeck/snakemake_haps/blob/master/config.yaml
-[data/fastq_raw]: https://github.com/chollenbeck/snakemake_haps/tree/master/data/fastq_raw
-[data/genome]: https://github.com/chollenbeck/snakemake_haps/tree/master/data/genome
-[raw.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/raw.py
-[folders.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/folders.py
-[map.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/map.py
-[qc.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/qc.py
-[variant_calling.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/variant_calling.py
-[haplotype.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/haplotype.py
-[clean.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/snakefiles/clean.py
-[bin/snakefiles]: https://github.com/chollenbeck/snakemake_haps/tree/master/bin/snakefiles 
+[Snakefile]: https://github.com/skyriakidis/Snakemake_haps/tree/master/bin/snakefiles
+[data/fastq_raw]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/fastq_raw
+[data/genome]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/genome
+[raw.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/raw.py
+[folders.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/folders.py
+[map.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/map.py
+[qc.py]: https://github.com/skyriakidis/Snakemake_haps/master/bin/snakefiles/qc.py
+[variant_calling.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/variant_calling.py
+[haplotype.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/haplotype.py
+[clean.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/clean.py
+[bin/snakefiles]: https://github.com/skyriakidis/Snakemake_haps/tree/master/bin/snakefiles 
 [Snakemake]: https://snakemake.readthedocs.io/en/stable/
 [tutorial for beginners]: http://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html
 [fastqc]: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
@@ -498,7 +497,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [BWA-MEM]: http://bio-bwa.sourceforge.net/bwa.shtml
 [FreeBayes]: https://github.com/ekg/freebayes
 [rad_haplotyper]: https://github.com/chollenbeck/rad_haplotyper
-[build_hap_config.py]: https://github.com/chollenbeck/snakemake_haps/blob/master/bin/scripts/build_hap_config.py
+[build_hap_config.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/scripts/build_hap_config.py
 [Trimmomatic]: http://www.usadellab.org/cms/?page=trimmomatic
 [SAMformat]: http://www.samformat.info/sam-format-flag
 
