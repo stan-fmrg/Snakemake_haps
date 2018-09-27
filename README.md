@@ -488,7 +488,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [SAMformat]: http://www.samformat.info/sam-format-flag
 
 
-
+## This pipeline is a contribution from the University of St Andrews, a partner in the European Marine Biological Research Infrastructure Cluster (EMBRIC) project funded by the European Union's Horizon 2020 research and innovation program under grant agreement No 654008.
 
 
 #Snakemake_haps
