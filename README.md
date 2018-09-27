@@ -219,7 +219,7 @@ $ snakemake
 #Run the build_hap_config.py script
 $ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -q False"
 ```
-That creates a config.yaml file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
+That creates a **config.yaml** file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
 
 Then "Snakemake_haps" workflow can be activated as described in 2.1.3
 
@@ -234,7 +234,7 @@ $ snakemake
 #Run the build_hap_config.py script
 $ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -f False"
 ```
-That creates a [config.yaml] file with FLASH step de-activated with all other parameters remaining the same.
+That creates a **config.yaml** file with FLASH step de-activated with all other parameters remaining the same.
 
 Then "Snakemake_haps" workflow can be activated as described in 2.1.3
 
@@ -251,7 +251,7 @@ In the same way as before, "Snakemake_haps" can be used for variant analysis and
 #Run the build_hap_config.py script
 $ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -p False"
 ```
-That creates a [config.yaml] file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
+That creates a **config.yaml** file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
 
 Then "Snakemake_haps" workflow can be activated as desctibed in 2.1.3
 
