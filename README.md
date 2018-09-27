@@ -463,7 +463,7 @@ This repository includes 2 directories with fastq files of 3 samples each, one o
 		
 ## Scripts
 
--[config.yaml] contains links with configuration files and parameters that are used in the workflow.
+-**config.yaml** contains links with configuration files and parameters that are used in the workflow.
 
 -[Snakefile] contains the rules that are used in the workflow, written as python script and stored in home directory. This file creates all the links with scripts hat contain the rules of the workflow. Executing [Snakefile] by using the command "snakemake", starts running the workflow specified.
 
@@ -506,6 +506,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [Trimmomatic]: http://www.usadellab.org/cms/?page=trimmomatic
 [SAMformat]: http://www.samformat.info/sam-format-flag
 [microhaplot]: https://github.com/ngthomas/microhaplot
+[BAM_to_SAM]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/BAM_to_SAM.py
 
 ## This pipeline is a contribution from the University of St Andrews, a partner in the European Marine Biological Research Infrastructure Cluster (EMBRIC) project funded by the European Union's Horizon 2020 research and innovation program under grant agreement No 654008.
 
