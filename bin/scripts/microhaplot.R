@@ -12,13 +12,14 @@ microhaplot::mvHaplotype("~/results/Final_results/Microhaplot/Shiny")
 
 library(microhaplot)
 
-# to access package sample case study dataset of rockfish
+# to access Snakemake_haps dataset
 run.label <- "snakemake_haps_microhaplot"
 sam.path <- "~/results/Final_results/Microhaplot/"
 label.path <- "~/results/Final_results/Microhaplot/label.txt"
 vcf.path <- "~/results/Final_results/Microhaplot/snps.vcf"
 app.path <- "~/results/Final_results/Microhaplot/Shiny/microhaplot"
 
+# If path of files are different
 # for your dataset: customize the following paths
 # sam.path <- "~/microhaplot/extdata/"
 # label.path <- "~/microhaplot/extdata/label.txt"
