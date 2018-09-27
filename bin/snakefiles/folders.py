@@ -6,7 +6,8 @@ FLASHED_READS = "data/Flashed/"
 
 MAP_DIR = "results/map/"
 MAP_DOC = "doc/map/"
-
+MAP_SAM = "results/map/SAM/"
+MICROHAPLOT = "results/Final_results/Microhaplot/"
 #MAP_DIR_SE = "results/map/se/"
 #MAP_DOC_SE = "doc/map/se/"
 

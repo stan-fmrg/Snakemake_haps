@@ -403,6 +403,7 @@ elif config["illumina_pe"] is None:
 
 #########################################################################################################
 
+
 if config["illumina_se"] is None:
     rule map:
         input:
