@@ -2,7 +2,7 @@
 
 packages <- c("dplyr", "openssl", "httr", "devtools", "feather", "shiny", "shinyBS", "shinyWidgets", "httr", "plotly", "DT", "ggplot2")
 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
-  install.packages(setdiff(packages, rownames(installed.packages())),repos='http://cran.rstudio.com/')  
+  install.packages(setdiff(packages, rownames(installed.packages())),repos='http://cran.rstudio.com/', dependencies=TRUE)  
 }
 
 
