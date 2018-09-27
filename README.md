@@ -174,7 +174,7 @@ _A more detailed explanation of the above steps are given in following "Tutorial
 
 ### 2 Tutorial
 
-This next part, will use the available sample data files in [data/fastq_raw] to illustrate how to run the workflow using both paired-end and single-end reads. The single-end data comes from a sequencing (using MiSeq technology) of two King scallop samples (*Pecten maximus*), while the paired-end reads are coming from Atlantic salmon (*Salmo salar*) sequencing. For testing purposes, the sample files can be found in the "Snakemake_haps" data/fastq_raw directory/Single_end_reads and data/fastq_raw directory/Paired_end_reads directory. Their corresponding reference sequences can be found 
+This next part, will use the available sample data files in [data/fastq_raw] to illustrate how to run the workflow using both paired-end and single-end reads. Both single-end and paired-end fastq files are from a sequencing (using MiSeq technology) of King scallop samples (*Pecten maximus*). For testing purposes, the sample files can be found in the "Snakemake_haps" data/fastq_raw directory/Single_end_reads and data/fastq_raw directory/Paired_end_reads directory. Their corresponding reference sequences can be found in data/genome/Single_end_ 
 
 #### 2.1 Steps for running "Snakemake_haps" with default parameters
 
@@ -212,7 +212,7 @@ snakemake
 
 #### 2.2 Steps for running "Snakemake_haps" only for variant calling. 
 
-The "Snakemake_haps" program is coming with the option to be used only for variant calling when the designing of haplotypes are not needed. To configure "Snakemake_haps" to proceed with the analysis without the [rad_haplotyper] step, [build_hap_config.py] script (described in 2.1.2) must be used with a changed option ##-q## as False (Default value = True). 
+##### 2.2.1 The "Snakemake_haps" program is coming with the option to be used only for variant calling when the designing of haplotypes are not needed. To configure "Snakemake_haps" to proceed with the analysis without the [rad_haplotyper] step, [build_hap_config.py] script (described in 2.1.2) must be used with a changed option **-q** as False (Default value = True). 
 
 ```
 #Run the build_hap_config.py script
@@ -220,7 +220,22 @@ python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -q
 ```
 That creates a [config.yaml] file with the [rad_haplotyper] de-activated with all other parameters remaining the same.
 
-Then "Snakemake_haps" workflow can be activated as desctibed in 2.1.3
+Then "Snakemake_haps" workflow can be activated as described in 2.1.3
+
+```
+#Start workflow by running snakemake
+snakemake
+``` 
+
+##### 2.2.2 For paired-end reads, the default usage include the "FLASH" (Fast Length Adjustment of SHort reads) step of merging paired-end reads. FLASH is designed to merge pairs of reads when the original DNA fragments are shorter than twice the length of reads. The resulting longer reads can significantly improve genome assemblies. They can also improve transcriptome assembly when FLASH is used to merge RNA-seq data.	For variant calling with paired-end reads that are not necessary to be merged, FLASH option can be deactivated by running the [build_hap_config.py] script with the option **-f** as False (Default value = True).
+
+```
+#Run the build_hap_config.py script
+python bin/scripts/build_hap_config.py -g /data/genome/"name_of_ref_seq.fasta -f False"
+```
+That creates a [config.yaml] file with FLASH step de-activated with all other parameters remaining the same.
+
+Then "Snakemake_haps" workflow can be activated as described in 2.1.3
 
 ```
 #Start workflow by running snakemake
