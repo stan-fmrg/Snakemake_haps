@@ -509,6 +509,3 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [BAM_to_SAM]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/BAM_to_SAM.py
 
 ## This pipeline is a contribution from the University of St Andrews, a partner in the European Marine Biological Research Infrastructure Cluster (EMBRIC) project funded by the European Union's Horizon 2020 research and innovation program under grant agreement No 654008.
-
-
-#Snakemake_haps
