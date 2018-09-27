@@ -26,7 +26,7 @@ If you are new to [Snakemake], you might want to start by working the available 
 
 ## 1. Installation
 
-"Snakemake_haps" can be downloaded and installed from a Github repository ("link"), however, since "snakemake_haps" has many dependencies, it is suggested to use one of the [Anaconda] or [Miniconda] repositories to avoid compiling dependecies one at a time which is time consuming.
+"Snakemake_haps" can be downloaded and installed from a [Github repository], however, since "snakemake_haps" has many dependencies, it is suggested to use one of the [Anaconda] or [Miniconda] repositories to avoid compiling dependecies one at a time which is time consuming.
 
 ### 1.1 Downloading and Installing (Ana|mini)conda:
 - [Anaconda] - Free
@@ -482,7 +482,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 
 
 
-
+[Github repository]: https://github.com/skyriakidis/Snakemake_haps/
 [Snakefile]: https://github.com/skyriakidis/Snakemake_haps/tree/master/bin/snakefiles
 [data/fastq_raw]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/fastq_raw
 [data/genome]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/genome
