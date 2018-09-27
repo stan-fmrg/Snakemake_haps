@@ -483,7 +483,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 
 
 [Github repository]: https://github.com/skyriakidis/Snakemake_haps/
-[Snakefile]: https://github.com/skyriakidis/Snakemake_haps/tree/master/bin/snakefiles
+[Snakefile]: https://github.com/skyriakidis/Snakemake_haps/blob/master/Snakefile
 [data/fastq_raw]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/fastq_raw
 [data/genome]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/genome
 [raw.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/raw.py
