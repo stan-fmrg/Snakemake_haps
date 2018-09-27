@@ -174,11 +174,11 @@ _A more detailed explanation of the above steps are given in following "Tutorial
 
 ### 2 Tutorial
 
-This next part, will use the available sample data files in [data/fastq_raw] to illustrate how to run the workflow using both paired-end and single-end reads. Both single-end and paired-end fastq files are from a sequencing (using MiSeq technology) of King scallop samples (*Pecten maximus*). For testing purposes, the sample files can be found in the "Snakemake_haps" data/fastq_raw directory/Single_end_reads and data/fastq_raw directory/Paired_end_reads directory. Their corresponding reference sequences can be found in data/genome/Single_end_ 
+This next part, will use the available sample data files in [data/fastq_raw] to illustrate how to run the workflow using both paired-end and single-end reads. Both single-end and paired-end fastq files are from a sequencing (using MiSeq technology) of King scallop samples (*Pecten maximus*). For testing purposes, the sample files can be found in the "Snakemake_haps" data/fastq_raw directory/Single_end_reads and data/fastq_raw directory/Paired_end_reads directory. Their corresponding reference sequences can be found in data/genome/Single_end_sample.fasta and data/genome/Paired_end_sample.fasta.
 
 #### 2.1 Steps for running "Snakemake_haps" with default parameters
 
-- After activating the newly created environment, the working directory must be set where the "Snakemake_haps" workflow is .
+- After activating the newly created environment, the working directory must be set where the "Snakemake_haps" workflow is:
 
 ```bash
 #Change directory
@@ -201,6 +201,7 @@ This python script will create a .yaml file consisting all the available paramet
 
 **- The config.yaml file is then stored in the home directory of "Snakemake_haps" and it can be opened by using a typical text editor. It is advisable for the user, before running the workflow, to open the config file and have a visual inspection of the
 sequencing read path, as well as the default parameters of mapping, variant calling and variant filtering.** 
+
 **- Other options that can be controled and changed from the config.yaml file are the option of including the QC step in the workflow and the removing the haplotype calling step.**
 
 ##### 2.1.3 After creating config.yaml file with all the necessary parameters and the correct paths of the raw sequencing data, the workflow can be executed. 
@@ -279,11 +280,11 @@ $ snakemake
 
 As mentioned before, [build_hap_config.py] is the script that creates the [config.yaml] that contains all the necessary parameters for "Snakemake_haps" to run, and there is a number of other options that can be configured. some of these are   
 
-- **"MANDATORY"** **"-g", "--genome"**: This option must be included by the user when [build_hap_config.py] is run, since the complete relative path and name of the reference sequence is needed for the workflow. If the sequence is not in data/genome directory, the correct relative path can also be added by using the option **-g** followed by the name of the .fasta file (Default value: data/genome/).
+- **"MANDATORY"** **"-g", "--genome"**: This option must be included by the user when [build_hap_config.py] is run, since the complete relative path and name of the reference sequence is needed for the workflow. If the sequence is not in data/genome directory, the correct relative path can also be added by using the option **"-g"** followed by the name of the .fasta file (Default value: data/genome/).
 - **"-n", "--run_name"**: When there is the need to use a different name for each run (Default value: haps_run).
-- **"-a", "--adapter_dir"**: If adapters for adapter removal are not located in the directory data/adapters, the new relative path for the adapters can be added by using the option **-a** (Default value: data/adapters).
+- **"-a", "--adapter_dir"**: If adapters for adapter removal are not located in the directory data/adapters, the new relative path for the adapters can be added by using the option **"-a"** (Default value: data/adapters).
 - **"-s", "--split_genome"**: This option splits the reference genome into n pieces for parallel variant calling (Default value: 5)
-- **"-v", "--diff_vcf"**: This option allows the "Snakemake_haps" workflow use a VCF file with variants that the user has previsouly identified as of high-quality and only the overlapping SNPs between this VCF and the identified SNPs in the VCF file of the "Snakemake_haps" workflow will be used for the haplotype calling. The relative path of the VCF file can be added to the workflow with option **-v** (Default value: "Null").
+- **"-v", "--diff_vcf"**: This option allows the "Snakemake_haps" workflow use a VCF file with variants that the user has previsouly identified as of high-quality and only the overlapping SNPs between this VCF and the identified SNPs in the VCF file of the "Snakemake_haps" workflow will be used for the haplotype calling. The relative path of the VCF file can be added to the workflow with option **"-v"** (Default value: "Null").
 
 #### 2.5 Parameters that can be changed in [config.yaml]
 
@@ -315,7 +316,7 @@ The values of these parameters can be easily modified by changing the values ins
 	- **"-r"**: Remove duplicate reads. (Default: Null)
 	- **"-S"**: Mark supplementary reads of duplicates as duplicates. (Default: Null)
 	
-To activate these options, just add **-r** and/or **-S** next to **-s** in [config.yaml] file and then save it. 
+To activate these options, just add **"-r"** and/or **"-S"** next to **"-s"** in [config.yaml] file and then save it. 
 
 - **"Samtools View"**: Samtools view command is a very versatile command from the Samtools package where its main function is to convert the binary form of the alignments into a human readable format. However, Samtools view has other functions, such as count the total lines of a BAM file and exctract reads that fulfill specific characteristics, like paired-reads mapped properly, unmapped reads and mates that are unmaped. For more information about the SAM flags that correspond to ecah property, visit [SAMformat] webpage.
 For this workflow, the parameters taken for filtering the reads that were aligned are:	
@@ -347,7 +348,7 @@ This program works first by iterating through each locus attempting to construct
 	The values of these parameters can be easily modified by removing them or adding new ones and then save the changes. For more information about rad_haplotyper please go to [rad_haplotyper].
 
 
-### 3 Results & produced files
+### 3 Results & output files
 
 The results of the analysis are stored in multiple locations, based on which step of the workflow they were produced (QC, mapping, variant calling, haplotype calling). However, the main results of the workflow are stored in the results/Final_results/ directory.
 The files that are produced during the workflow contain figures and statistis about the reads and their alignemnt against the reference sequence, as well as two VCF files with the raw and filtered variants from the variant analysis and the haplotypes that are designed using [rad_haplotyper]. A detailed description of these files is going to be given over the next part. 
