@@ -82,7 +82,7 @@ if config["Haplotyper"] is True and config["Validation"] is None:
         input:
             vcf = FINAL_VARIANTS + "filtered_snps.recode.vcf"
         output:
-            vcf = MICROHAPLOT + "filtered_snps.recode.vcf"
+            vcf = MICROHAPLOT + "snps.vcf"
         log:
             HAPLOTYPE_DOC + "make_VCF_link.log"
         threads:
@@ -98,7 +98,7 @@ elif config["Haplotyper"] is True and config["Validation"] is not None:
         input:
             vcf = FINAL_VARIANTS + "Overlapping_SNPs.vcf"
         output:
-            vcf = MICROHAPLOT + "Overlapping_filtered_snps.recode.vcf"
+            vcf = MICROHAPLOT + "snps.vcf"
         log:
             HAPLOTYPE_DOC + "make_VCF_link.log"
         threads:
