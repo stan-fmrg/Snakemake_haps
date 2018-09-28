@@ -1,0 +1,387 @@
+run_name: reseq_run
+home_dir: /home/chris/work/haps/snakemake_htas_haps/bin/scripts
+scripts_dir: bin/scripts
+config_dir: data/config
+genome: data/genome/reference.fasta
+trimmomatic_params: LEADING:20 TRAILING:20 AVGQUAL:30 MINLEN:32 TOPHRED33
+illumina_raw:
+  S57:
+    forward: data/fastq_raw/S57_S57_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S56:
+    forward: data/fastq_raw/S56_S56_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S55:
+    forward: data/fastq_raw/S55_S55_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S54:
+    forward: data/fastq_raw/S54_S54_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S53:
+    forward: data/fastq_raw/S53_S53_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S52:
+    forward: data/fastq_raw/S52_S52_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S51:
+    forward: data/fastq_raw/S51_S51_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S50:
+    forward: data/fastq_raw/S50_S50_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S59:
+    forward: data/fastq_raw/S59_S59_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S58:
+    forward: data/fastq_raw/S58_S58_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S44:
+    forward: data/fastq_raw/S44_S44_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S45:
+    forward: data/fastq_raw/S45_S45_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S46:
+    forward: data/fastq_raw/S46_S46_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S47:
+    forward: data/fastq_raw/S47_S47_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S40:
+    forward: data/fastq_raw/S40_S40_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S41:
+    forward: data/fastq_raw/S41_S41_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S42:
+    forward: data/fastq_raw/S42_S42_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S43:
+    forward: data/fastq_raw/S43_S43_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S48:
+    forward: data/fastq_raw/S48_S48_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S49:
+    forward: data/fastq_raw/S49_S49_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S79:
+    forward: data/fastq_raw/S79_S79_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S78:
+    forward: data/fastq_raw/S78_S78_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S71:
+    forward: data/fastq_raw/S71_S71_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S70:
+    forward: data/fastq_raw/S70_S70_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S73:
+    forward: data/fastq_raw/S73_S73_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S72:
+    forward: data/fastq_raw/S72_S72_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S75:
+    forward: data/fastq_raw/S75_S75_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S74:
+    forward: data/fastq_raw/S74_S74_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S77:
+    forward: data/fastq_raw/S77_S77_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S76:
+    forward: data/fastq_raw/S76_S76_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S68:
+    forward: data/fastq_raw/S68_S68_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S69:
+    forward: data/fastq_raw/S69_S69_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S66:
+    forward: data/fastq_raw/S66_S66_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S67:
+    forward: data/fastq_raw/S67_S67_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S64:
+    forward: data/fastq_raw/S64_S64_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S65:
+    forward: data/fastq_raw/S65_S65_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S62:
+    forward: data/fastq_raw/S62_S62_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S63:
+    forward: data/fastq_raw/S63_S63_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S60:
+    forward: data/fastq_raw/S60_S60_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S61:
+    forward: data/fastq_raw/S61_S61_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S9:
+    forward: data/fastq_raw/S9_S9_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S8:
+    forward: data/fastq_raw/S8_S8_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S3:
+    forward: data/fastq_raw/S3_S3_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S2:
+    forward: data/fastq_raw/S2_S2_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S1:
+    forward: data/fastq_raw/S1_S1_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S7:
+    forward: data/fastq_raw/S7_S7_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S6:
+    forward: data/fastq_raw/S6_S6_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S5:
+    forward: data/fastq_raw/S5_S5_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S4:
+    forward: data/fastq_raw/S4_S4_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S19:
+    forward: data/fastq_raw/S19_S19_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S18:
+    forward: data/fastq_raw/S18_S18_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S13:
+    forward: data/fastq_raw/S13_S13_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S12:
+    forward: data/fastq_raw/S12_S12_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S11:
+    forward: data/fastq_raw/S11_S11_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S17:
+    forward: data/fastq_raw/S17_S17_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S16:
+    forward: data/fastq_raw/S16_S16_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S15:
+    forward: data/fastq_raw/S15_S15_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S14:
+    forward: data/fastq_raw/S14_S14_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S93:
+    forward: data/fastq_raw/S93_S93_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S92:
+    forward: data/fastq_raw/S92_S92_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S91:
+    forward: data/fastq_raw/S91_S91_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S90:
+    forward: data/fastq_raw/S90_S90_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S96:
+    forward: data/fastq_raw/S96_S96_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S95:
+    forward: data/fastq_raw/S95_S95_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S94:
+    forward: data/fastq_raw/S94_S94_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S80:
+    forward: data/fastq_raw/S80_S80_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S81:
+    forward: data/fastq_raw/S81_S81_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S82:
+    forward: data/fastq_raw/S82_S82_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S83:
+    forward: data/fastq_raw/S83_S83_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S84:
+    forward: data/fastq_raw/S84_S84_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S85:
+    forward: data/fastq_raw/S85_S85_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S86:
+    forward: data/fastq_raw/S86_S86_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S87:
+    forward: data/fastq_raw/S87_S87_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S88:
+    forward: data/fastq_raw/S88_S88_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S89:
+    forward: data/fastq_raw/S89_S89_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S39:
+    forward: data/fastq_raw/S39_S39_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S38:
+    forward: data/fastq_raw/S38_S38_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S35:
+    forward: data/fastq_raw/S35_S35_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S34:
+    forward: data/fastq_raw/S34_S34_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S37:
+    forward: data/fastq_raw/S37_S37_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S36:
+    forward: data/fastq_raw/S36_S36_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S31:
+    forward: data/fastq_raw/S31_S31_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S30:
+    forward: data/fastq_raw/S30_S30_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S33:
+    forward: data/fastq_raw/S33_S33_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S32:
+    forward: data/fastq_raw/S32_S32_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S22:
+    forward: data/fastq_raw/S22_S22_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S23:
+    forward: data/fastq_raw/S23_S23_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S20:
+    forward: data/fastq_raw/S20_S20_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S21:
+    forward: data/fastq_raw/S21_S21_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S26:
+    forward: data/fastq_raw/S26_S26_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S27:
+    forward: data/fastq_raw/S27_S27_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S24:
+    forward: data/fastq_raw/S24_S24_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S25:
+    forward: data/fastq_raw/S25_S25_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S28:
+    forward: data/fastq_raw/S28_S28_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S29:
+    forward: data/fastq_raw/S29_S29_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa

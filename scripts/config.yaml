@@ -1,0 +1,30 @@
+run_name: reseq_run
+home_dir: /home/chris/work/ssal_test/snakemake_htas_haps/bin/scripts
+scripts_dir: bin/scripts
+config_dir: data/config
+genome: data/genome/sample.fasta
+trimmomatic_params: LEADING:20 TRAILING:20 AVGQUAL:30 MINLEN:32 TOPHRED33
+illumina_se:
+  S12:
+    forward: data/fastq_raw/S12_S12_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S11:
+    forward: data/fastq_raw/S11_S11_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S10:
+    forward: data/fastq_raw/S10_S10_L001_R1_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+illumina_pe:
+  S12:
+    forward: data/fastq_raw/S12_S12_L001_R1_001.fastq.gz
+    reverse: data/fastq_raw/S12_S12_L001_R2_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
+  S11:
+    forward: data/fastq_raw/S11_S11_L001_R1_001.fastq.gz
+    reverse: data/fastq_raw/S11_S11_L001_R2_001.fastq.gz
+    phred: phred33
+    adapter: data/adapters/TrueSeq3-PE-2.fa
