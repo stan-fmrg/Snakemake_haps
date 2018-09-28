@@ -98,28 +98,28 @@ elif config["illumina_se"] is None and config["QC_Tests"] is True and config["Ha
 	rule all:
 		input:
 		  HAPLOTYPE_DIR + "haplotypes.done",
-		  expand([MICROHAPLOT + "filtered_snps.recode.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_MULTIQC_QUALIMAP, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat", fastQC_raw + "{sample}.raw.{pair}.fastqc", fastQC + "{sample}.{pair}"],
+		  expand([MICROHAPLOT + "snps.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_MULTIQC_QUALIMAP, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat", fastQC_raw + "{sample}.raw.{pair}.fastqc", fastQC + "{sample}.{pair}"],
 		    sample = SAMPLES_PE, pair = "1 2".split())
 
 elif config["illumina_se"] is None and config["QC_Tests"] is False and config["Haplotyper"] is True and config["Validation"] is None and config["Flash"] is False:
 	rule all:
 		input:
 		  HAPLOTYPE_DIR + "haplotypes.done",
-		  expand([MICROHAPLOT + "filtered_snps.recode.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"],
+		  expand([MICROHAPLOT + "snps.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"],
 			sample = SAMPLES_PE, pair = "1 2".split())
 
 elif config["illumina_pe"] is None and config["QC_Tests"] is True and config["Haplotyper"] is True and config["Validation"] is None:
 	rule all:
 		input:
 			HAPLOTYPE_DIR + "haplotypes.done",
-			expand([MICROHAPLOT + "filtered_snps.recode.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_MULTIQC_QUALIMAP, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat", fastQC_raw + "{sample}.raw.fastqc",fastQC + "{sample}.se"],
+			expand([MICROHAPLOT + "snps.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_MULTIQC_QUALIMAP, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat", fastQC_raw + "{sample}.raw.fastqc",fastQC + "{sample}.se"],
 		  		sample = SAMPLES_SE)
 
 elif config["illumina_pe"] is None and config["QC_Tests"] is False and config["Haplotyper"] is True and config["Validation"] is None:
 	rule all:
 		input:
 			HAPLOTYPE_DIR + "haplotypes.done",
-			expand([MICROHAPLOT + "filtered_snps.recode.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"],
+			expand([MICROHAPLOT + "snps.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"],
 				sample = SAMPLES_SE)
 
 
@@ -200,14 +200,14 @@ elif config["illumina_se"] is None and config["QC_Tests"] is True and config["Ha
 	rule all:
 		input:
 		  HAPLOTYPE_DIR + "haplotypes.done",
-		  expand([MICROHAPLOT + "filtered_snps.recode.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FLASHED_READS + "{sample}.flashed.extendedFrags.fastq.gz", FLASHED_READS + "{sample}.flashed", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_MULTIQC_QUALIMAP, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat", fastQC_raw + "{sample}.raw.{pair}.fastqc", fastQC + "{sample}.{pair}"],
+		  expand([MICROHAPLOT + "snps.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FLASHED_READS + "{sample}.flashed.extendedFrags.fastq.gz", FLASHED_READS + "{sample}.flashed", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_MULTIQC_QUALIMAP, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat", fastQC_raw + "{sample}.raw.{pair}.fastqc", fastQC + "{sample}.{pair}"],
 		    sample = SAMPLES_PE, pair = "1 2".split())
 
 elif config["illumina_se"] is None and config["QC_Tests"] is False and config["Haplotyper"] is True and config["Validation"] is None and config["Flash"] is True:
 	rule all:
 		input:
 		  HAPLOTYPE_DIR + "haplotypes.done",
-		  expand([MICROHAPLOT + "filtered_snps.recode.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FLASHED_READS + "{sample}.flashed.extendedFrags.fastq.gz", FLASHED_READS + "{sample}.flashed", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"],
+		  expand([MICROHAPLOT + "snps.vcf", MICROHAPLOT + "{sample}.sorted.sam", MICROHAPLOT + "labels.txt", MAP_SAM + "{sample}.sorted.sam", FLASHED_READS + "{sample}.flashed.extendedFrags.fastq.gz", FLASHED_READS + "{sample}.flashed", FINAL_DOCS_IDXSTATS + "{sample}.idxstats", FINAL_VARIANTS + "Hardy_Weinberg_values", FINAL_DOCS_MULTIQC_IDXSTATS, FINAL_DOCS_MULTIQC_FLAGSTAT, FINAL_DOCS_GENERALSTATS + "{sample}.generalStats", FINAL_DOCS_FLAGSTAT + "{sample}.flagstat"],
 			sample = SAMPLES_PE, pair = "1 2".split())
 
 elif config["illumina_se"] is None and config["QC_Tests"] is True and config["Haplotyper"] is True and config["Validation"] is not None and config["Flash"] is True:
