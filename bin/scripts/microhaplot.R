@@ -8,23 +8,24 @@ if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
 
 devtools::install_github("ngthomas/microhaplot", build_vignettes = TRUE)
 
-microhaplot::mvHaplotype("~/results/Final_results/Microhaplot/Shiny")
+dir.create ("results/Final_results/Microhaplot/Shiny")
+microhaplot::mvHaplotype("results/Final_results/Microhaplot/Shiny")
 
 library(microhaplot)
 
 # to access Snakemake_haps dataset
 run.label <- "snakemake_haps_microhaplot"
-sam.path <- "~/results/Final_results/Microhaplot/"
-label.path <- "~/results/Final_results/Microhaplot/label.txt"
-vcf.path <- "~/results/Final_results/Microhaplot/snps.vcf"
-app.path <- "~/results/Final_results/Microhaplot/Shiny/microhaplot"
+sam.path <- "results/Final_results/Microhaplot/"
+label.path <- "results/Final_results/Microhaplot/labels.txt"
+vcf.path <- "results/Final_results/Microhaplot/snps.vcf"
+app.path <- "results/Final_results/Microhaplot/Shiny/microhaplot"
 
 # If path of files are different
 # for your dataset: customize the following paths
 # sam.path <- "~/microhaplot/extdata/"
-# label.path <- "~/microhaplot/extdata/label.txt"
+# label.path <- "~/microhaplot/extdata/labels.txt"
 # vcf.path <- "~/microhaplot/extdata/sebastes.vcf"
-# app.path <- "~/Shiny/microhaplot"
+# app.path <- ""results/Final_results/Microhaplot/Shiny""
 
 haplo.read.tbl <- runHaplot(run.label = run.label,
            sam.path=sam.path,
@@ -33,4 +34,4 @@ haplo.read.tbl <- runHaplot(run.label = run.label,
            app.path=app.path)
 
 
-           
+runHaplotype()         
