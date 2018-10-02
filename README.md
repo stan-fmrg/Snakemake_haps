@@ -481,7 +481,8 @@ Garrison E, Marth G. Haplotype-based variant detection from short-read sequencin
 Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25(14), 1754-1760.
 
 
-
+[Anaconda]: https://www.anaconda.com/
+[Miniconda]: https://conda.io/miniconda.html
 [Github repository]: https://github.com/stan-fmrg/Snakemake_haps/
 [Snakefile]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/Snakefile
 [data/fastq_raw]:https://github.com/stan-fmrg/Snakemake_haps/tree/master/data/fastq_raw
