@@ -285,7 +285,7 @@ $ snakemake
 	- **"-s", "--split_genome"**: This option splits the reference genome into n pieces for parallel variant calling (Default value: 5)
 	- **"-v", "--diff_vcf"**: This option allows the "Snakemake_haps" workflow use a VCF file with variants that the user has previously identified as of high-quality and only the overlapping SNPs between this VCF and the identified SNPs in the VCF file of the "Snakemake_haps" workflow will be used for the haplotype calling. The relative path of the VCF file can be added to the workflow with option **"-v"** (Default value: "Null").
 
-#### 2.5 Parameters that can be changed in [config.yaml]
+#### 2.5 Parameters that can be changed in config.yaml
 
 **config.yaml** is the created file from running [build_hap_config.py] script and contains all of the parameters for each step of the workflow, including mapping, variant calling, and variant filtering. These parameters, even though they work very good with sequencing data coming from Miseq runs, they can be non-ideal for other sequencing data or for the needs of each project, and be edited by opening [config.yaml] by using a text editor.  
 
