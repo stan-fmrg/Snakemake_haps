@@ -511,7 +511,7 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [Trimmomatic]: http://www.usadellab.org/cms/?page=trimmomatic
 [SAMformat]: http://www.samformat.info/sam-format-flag
 [microhaplot]: https://github.com/ngthomas/microhaplot
-[BAM_to_SAM]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/BAM_to_SAM.py
+[BAM_to_SAM.py]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/BAM_to_SAM.py
 [Anaconda from here]: https://www.anaconda.com/download/
 [Miniconda from here]: https://conda.io/miniconda.html
 
