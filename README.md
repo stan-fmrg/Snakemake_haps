@@ -45,7 +45,7 @@ $ curl -o /tmp/Anaconda.sh https://repo.continuum.io/archive/Anaconda3-5.1.0-Lin
 
 ##### or
 
-##### Download the available installer version of Anaconda from [Anaconda]
+##### Download the available installer version of [Anaconda from here]
 
 ```bash
 #Change directory to where the installer is
@@ -54,8 +54,8 @@ $ cd ~/Path/to/Anaconda.sh
 $ bash Anaconda.sh
 ```
 
-#### For installing Miniconda Pyhon 3 distribution:
-##### - Steps for downloading and installing Miniconda3:
+#### For installing Miniconda Python 3 distribution:
+##### - Steps for downloading and installing Miniconda:
 
 ```bash
 # If Curl is not installed you can install it by typing:
@@ -67,7 +67,7 @@ $ curl -o /tmp/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-lates
 
 ##### or
 
-##### Download the available installer version of Miniconda3 from [Miniconda]
+##### Download the available installer version of [Miniconda from here]
 
 ```bash
 #Change directory to where the installer is
@@ -508,5 +508,8 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [SAMformat]: http://www.samformat.info/sam-format-flag
 [microhaplot]: https://github.com/ngthomas/microhaplot
 [BAM_to_SAM]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/BAM_to_SAM.py
+[Anaconda from here]: https://www.anaconda.com/download/
+[Miniconda from here]: https://conda.io/miniconda.html
+
 
 ## This pipeline is a contribution from the University of St Andrews, a partner in the European Marine Biological Research Infrastructure Cluster (EMBRIC) project funded by the European Union's Horizon 2020 research and innovation program under grant agreement No 654008.
