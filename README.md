@@ -288,7 +288,7 @@ As mentioned before, [build_hap_config.py] is the script that creates the [confi
 
 #### 2.5 Parameters that can be changed in [config.yaml]
 
-As mentioned before, [config.yaml] is the created file from running [build_hap_config.py] script and contains all of the parameters for each step of the workflow, including mapping, variant calling, and variant filtering. These parameters, even though they work very good with sequencing data coming from Miseq runs, they can be non-ideal for other sequencing data or for the needs of each project, and be edited by opening [config.yaml] by using a text editor.  
+As mentioned before, **config.yaml** is the created file from running [build_hap_config.py] script and contains all of the parameters for each step of the workflow, including mapping, variant calling, and variant filtering. These parameters, even though they work very good with sequencing data coming from Miseq runs, they can be non-ideal for other sequencing data or for the needs of each project, and be edited by opening [config.yaml] by using a text editor.  
 
 - **"Trimmomatic read trimming"**: Trimmomatic performs a variety of useful trimming steps for illumina paired-end and single ended reads. The trimming tasks that it performs include the removal of adapters, leading and trailing low quality bases, the scanning of the read with a 4-base wide sliding window and cutting when the average quality per base dropw below a threshold, and the removal of low quality reads. The parameters for these tasks, that can be also found in the [config.yaml], are the following:   
 	- **LEADING:[20]**  Cut bases off the start of a read, if below a threshold quality
@@ -482,18 +482,18 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 
 
 
-[Github repository]: https://github.com/skyriakidis/Snakemake_haps/
-[Snakefile]: https://github.com/skyriakidis/Snakemake_haps/blob/master/Snakefile
-[data/fastq_raw]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/fastq_raw
+[Github repository]: https://github.com/stan-fmrg/Snakemake_haps/
+[Snakefile]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/Snakefile
+[data/fastq_raw]:https://github.com/stan-fmrg/Snakemake_haps/tree/master/data/fastq_raw
 [data/genome]: https://github.com/skyriakidis/Snakemake_haps/tree/master/data/genome
-[raw.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/raw.py
-[folders.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/folders.py
-[map.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/map.py
-[qc.py]: https://github.com/skyriakidis/Snakemake_haps/master/bin/snakefiles/qc.py
-[variant_calling.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/variant_calling.py
-[haplotype.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/haplotype.py
-[clean.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/clean.py
-[bin/snakefiles]: https://github.com/skyriakidis/Snakemake_haps/tree/master/bin/snakefiles 
+[raw.py]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/raw.py
+[folders.py]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/folders.py
+[map.py]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/map.py
+[qc.py]: https://github.com/stan-fmrg/Snakemake_haps/master/bin/snakefiles/qc.py
+[variant_calling.py]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/variant_calling.py
+[haplotype.py]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/haplotype.py
+[clean.py]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/clean.py
+[bin/snakefiles]: https://github.com/stan-fmrg/Snakemake_haps/tree/master/bin/snakefiles 
 [Snakemake]: https://snakemake.readthedocs.io/en/stable/
 [tutorial for beginners]: http://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html
 [fastqc]: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/
@@ -502,10 +502,10 @@ Li H. and Durbin R. (2009). Fast and accurate short read alignment with Burrows-
 [BWA-MEM]: http://bio-bwa.sourceforge.net/bwa.shtml
 [FreeBayes]: https://github.com/ekg/freebayes
 [rad_haplotyper]: https://github.com/chollenbeck/rad_haplotyper
-[build_hap_config.py]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/scripts/build_hap_config.py
+[build_hap_config.py]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/scripts/build_hap_config.py
 [Trimmomatic]: http://www.usadellab.org/cms/?page=trimmomatic
 [SAMformat]: http://www.samformat.info/sam-format-flag
 [microhaplot]: https://github.com/ngthomas/microhaplot
-[BAM_to_SAM]: https://github.com/skyriakidis/Snakemake_haps/blob/master/bin/snakefiles/BAM_to_SAM.py
+[BAM_to_SAM]: https://github.com/stan-fmrg/Snakemake_haps/blob/master/bin/snakefiles/BAM_to_SAM.py
 
 ## This pipeline is a contribution from the University of St Andrews, a partner in the European Marine Biological Research Infrastructure Cluster (EMBRIC) project funded by the European Union's Horizon 2020 research and innovation program under grant agreement No 654008.
