@@ -287,7 +287,7 @@ $ snakemake
 
 #### 2.5 Parameters that can be changed in [config.yaml]
 
-- **config.yaml** is the created file from running [build_hap_config.py] script and contains all of the parameters for each step of the workflow, including mapping, variant calling, and variant filtering. These parameters, even though they work very good with sequencing data coming from Miseq runs, they can be non-ideal for other sequencing data or for the needs of each project, and be edited by opening [config.yaml] by using a text editor.  
+**config.yaml** is the created file from running [build_hap_config.py] script and contains all of the parameters for each step of the workflow, including mapping, variant calling, and variant filtering. These parameters, even though they work very good with sequencing data coming from Miseq runs, they can be non-ideal for other sequencing data or for the needs of each project, and be edited by opening [config.yaml] by using a text editor.  
 
 - **"Trimmomatic read trimming"**: Trimmomatic performs a variety of useful trimming steps for illumina paired-end and single ended reads. The trimming tasks that it performs include the removal of adapters, leading and trailing low quality bases, the scanning of the read with a 4-base wide sliding window and cutting when the average quality per base dropw below a threshold, and the removal of low quality reads. The parameters for these tasks, that can be also found in the [config.yaml], are the following:   
 	- **LEADING:[20]**  Cut bases off the start of a read, if below a threshold quality
