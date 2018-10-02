@@ -278,9 +278,8 @@ $ snakemake
 
 #### 2.4 Other parameters that can be changed in [build_hap_config.py]
 
-As mentioned before, [build_hap_config.py] is the script that creates the [config.yaml] that contains all the necessary parameters for "Snakemake_haps" to run, and there is a number of other options that can be configured. some of these are   
-
-	- **"MANDATORY"** **"-g", "--genome"**: This option must be included by the user when [build_hap_config.py] is run, since the complete relative path and name of the reference sequence is needed for the workflow. If the sequence is not in data/genome directory, the correct relative path can also be added by using the option **"-g"** followed by the name of the .fasta file (Default value: data/genome/).
+As mentioned before, [build_hap_config.py] is the script that creates the [config.yaml] that contains all the necessary parameters for "Snakemake_haps" to run, and there is a number of other options that can be configured. some of these are:  
+	- **"MANDATORY"** - **"-g", "--genome"**: This option must be included by the user when [build_hap_config.py] is run, since the complete relative path and name of the reference sequence is needed for the workflow. If the sequence is not in data/genome directory, the correct relative path can also be added by using the option **"-g"** followed by the name of the .fasta file (Default value: data/genome/).
 	- **"-n", "--run_name"**: When there is the need to use a different name for each run (Default value: haps_run).
 	- **"-a", "--adapter_dir"**: If adapters for adapter removal are not located in the directory data/adapters, the new relative path for the adapters can be added by using the option **"-a"** (Default value: data/adapters).
 	- **"-s", "--split_genome"**: This option splits the reference genome into n pieces for parallel variant calling (Default value: 5)
