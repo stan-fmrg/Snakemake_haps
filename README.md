@@ -281,10 +281,10 @@ $ snakemake
 As mentioned before, [build_hap_config.py] is the script that creates the [config.yaml] that contains all the necessary parameters for "Snakemake_haps" to run, and there is a number of other options that can be configured. some of these are   
 
 - **"MANDATORY"** **"-g", "--genome"**: This option must be included by the user when [build_hap_config.py] is run, since the complete relative path and name of the reference sequence is needed for the workflow. If the sequence is not in data/genome directory, the correct relative path can also be added by using the option **"-g"** followed by the name of the .fasta file (Default value: data/genome/).
-- **"-n", "--run_name"**: When there is the need to use a different name for each run (Default value: haps_run).
-- **"-a", "--adapter_dir"**: If adapters for adapter removal are not located in the directory data/adapters, the new relative path for the adapters can be added by using the option **"-a"** (Default value: data/adapters).
-- **"-s", "--split_genome"**: This option splits the reference genome into n pieces for parallel variant calling (Default value: 5)
-- **"-v", "--diff_vcf"**: This option allows the "Snakemake_haps" workflow use a VCF file with variants that the user has previsouly identified as of high-quality and only the overlapping SNPs between this VCF and the identified SNPs in the VCF file of the "Snakemake_haps" workflow will be used for the haplotype calling. The relative path of the VCF file can be added to the workflow with option **"-v"** (Default value: "Null").
+	- **"-n", "--run_name"**: When there is the need to use a different name for each run (Default value: haps_run).
+	- **"-a", "--adapter_dir"**: If adapters for adapter removal are not located in the directory data/adapters, the new relative path for the adapters can be added by using the option **"-a"** (Default value: data/adapters).
+	- **"-s", "--split_genome"**: This option splits the reference genome into n pieces for parallel variant calling (Default value: 5)
+	- **"-v", "--diff_vcf"**: This option allows the "Snakemake_haps" workflow use a VCF file with variants that the user has previsouly identified as of high-quality and only the overlapping SNPs between this VCF and the identified SNPs in the VCF file of the "Snakemake_haps" workflow will be used for the haplotype calling. The relative path of the VCF file can be added to the workflow with option **"-v"** (Default value: "Null").
 
 #### 2.5 Parameters that can be changed in [config.yaml]
 
@@ -328,7 +328,7 @@ The values of these parameters can be easily modified by removing them or adding
 -**"FLASH"**: FLASH (Fast Length Adjustment of SHort reads) is a very fast and accurate software tool to merge paired-end reads from next-generation sequencing experiments. FLASH is an extremely helpful step in this workflow since it is designed to merge pairs of reads when the original DNA fragments are shorter than twice the length of reads. However. when the workflow is used with DNA fragments larger than twice the length of the reads or with complete genome reference sequenes, the FLASH step can be de-activated, and paired-end reads can be mapped to the reference sequence as they are. The defualt parameters for this step include:
 	- **"-m"**: minOverlap is the minimum required overlap length between two reads to provide a confident overlap. (Default: 30bp).
 	- **"-M"**: maxOverlap is the maximum overlap length expected in approximately 90% of read pairs. It is by default set to 70bp, which works well for 100bp reads generated from 180bp library (normal distribution of fragment lengths is assumed). Overlaps longer than maxOverlap are still considered as good overlaps, but the mismatch ratio (explained below) is calculated over the maxOverlap rather than the true overlap length. If you enter a value for maxOverlap, then the read length, fragment length and standard deviation of fragment lengths that you enter will be ignored for calculation of maxOverlap parameter. (Default: 70bp).
-
+	
 - **"FreeBayes Variant Calling"**: FreeBayes is a genetic variant detector, specifically designed to identify small polymorphisms, IndDels, MNPs and compelx events (composite insertion and substitution events). It uses short-read alignments (BAM files), which in this workflow all BAM files for a number of samples are merged into one BAM file, and a reference genome (in FASTA format) are used to determine the most-likely combination of genotypes for the population at each position in the reference:
  	- **--haplotype-length**: [0] Simply annotate observation counts of SNPs and indels:
 	- **--no-complex**: Do not generate information about complex events
