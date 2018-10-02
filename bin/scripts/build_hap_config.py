@@ -111,7 +111,7 @@ with open("config.yaml", mode = "w") as OUT:
 
     OUT.write('{0!s}\n'.format("###################################################\n# FLASH parameters \n# :Parameters:\n# - FLASH: any parameters recognised by FLASH"))
     OUT.write('{0!s}\n'.format("FLASH:"))
-    OUT.write('  {0!s} {1!s}\n'.format("FLASH_params:", "-m 30 -M 250\n"))
+    OUT.write('  {0!s} {1!s}\n'.format("FLASH_params:", "-m 30 -M 70\n"))
     
     OUT.write('{0!s}\n'.format("###################################################\n# Haplotyping parameters \n# :Parameters:\n# - rad_haplotyper: any parameters recognised by rad_haplotyper"))
     OUT.write('{0!s}\n'.format("Haplotyping_params:"))
